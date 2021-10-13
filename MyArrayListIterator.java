@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class MyArrayListIterator implements Iterator<String>{
+public class MyArrayListIterator<T> implements Iterator<T>{
 
   MyArrayList mal;
   int index = 0;
@@ -11,12 +11,12 @@ public class MyArrayListIterator implements Iterator<String>{
 
   @Override
   public boolean hasNext() {
-    return index < mal.size() - 1;
+    return index < mal.size();
   }
 
   @Override
-  public String next() {
-    return mal.get(index++).toString();
+  public T next() {
+    return (T) mal.get(index++);
   }
   
 }

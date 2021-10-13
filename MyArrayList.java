@@ -1,7 +1,7 @@
 import java.util.Collection;
 import java.util.Iterator;
 
-public class MyArrayList<T extends Comparable<T>> implements ICollection<T> {
+public class MyArrayList<T> implements ICollection<T> {
 
     private int size = 0;
     private T[] list;
@@ -90,7 +90,7 @@ public class MyArrayList<T extends Comparable<T>> implements ICollection<T> {
     //TODO: Figure out what this is and how to do it.
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new MyArrayListIterator(this);
     }
 
     //COMPLETE
@@ -106,5 +106,14 @@ public class MyArrayList<T extends Comparable<T>> implements ICollection<T> {
             newTArray[i] = input[i];
         }
         return newTArray;
+    }
+
+    @Override
+    public String toString() {
+        String returnString = new String();
+        for(int i = 0; i < size; i++) {
+            returnString += "" + list[i] + " | ";
+        }
+        return returnString;
     }
 }
